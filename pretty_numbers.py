@@ -10,10 +10,10 @@ def getPrettyTextFromSet(frames):
     """
     if not frames: 
         return ""
-    framesList = frames.copy()
-    if len(framesList)==1:
-        return str(framesList.pop())
-    framesList = list(framesList)
+    if len(frames)==1:
+        framesSet = frames.copy()
+        return str(framesSet.pop())
+    framesList = list(frames)
     framesList.sort(reverse=True)
     lastNum = framesList.pop()
     currentStrStart = lastNum
@@ -29,3 +29,10 @@ def getPrettyTextFromSet(frames):
     if currentStrStart != currNum:
         pStr = pStr + "-" + str(lastNum)
     return pStr
+
+def getPrettyTextFromNumbers(frames):
+    """
+    Given iterable of integers returns a more human readable string
+    """
+    framesSet = set(frames)
+    return getPrettyTextFromSet(framesSet)

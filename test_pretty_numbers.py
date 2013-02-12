@@ -21,7 +21,10 @@ class TestListUtils(unittest.TestCase):
     def test_prettyTextFromSet(self):
         for set_, text in self.compList:
             self.assertEqual(pretty_numbers.getPrettyTextFromSet(set_), text)
-            
+    
+    def test_getPrettTextFromNumbers(self):
+        self.assertEqual(pretty_numbers.getPrettyTextFromNumbers([1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010]), "1001-1010")
+                         
 def main():
     unittest.main()
     
