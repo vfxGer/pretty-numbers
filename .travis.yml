@@ -8,5 +8,9 @@ python:
   - "3.5"
   - "3.5-dev" # 3.5 development branch
   - "nightly" # currently points to 3.6-dev
+install:
+  pip install codecov
 # command to run tests
-script: nosetests test_pretty_numbers.py
+script: nosetests --with-coverage test_pretty_numbers.py
+after_success:
+    codecov
