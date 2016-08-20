@@ -4,10 +4,11 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-version = '0.0.1'
+version = '0.0.5'
 
-with open('README.md') as readme:
-    long_description = readme.read()
+# Get the long description from the README file
+with open(path.join(here, 'README.rst')) as f:
+    long_description = f.read()
 
 setup(
     name = 'prettynumbers',
@@ -16,7 +17,7 @@ setup(
     long_description = long_description,
     author = 'Gerard Keating',
     author_email = 'gerardk@gmail.com',
-    license = 'MIT',
+    license = 'GNU GENERAL PUBLIC LICENSE',
     url = 'https://github.com/vfxGer/pretty-numbers',
     py_modules = ['pretty_numbers'],
     download_url = 'https://pypi.python.org/packages/source/d/pretty_numbers-%s.tar.gz?raw=true' % (version),
