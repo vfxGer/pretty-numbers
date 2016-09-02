@@ -36,3 +36,23 @@ def getPrettyTextFromNumbers(frames):
     """
     framesSet = set(frames)
     return getPrettyTextFromSet(framesSet)
+
+def getPrettyNumbersText(list_of_strings):
+    nums = set()
+    end_text = set()
+    for i in list_of_strings:
+        if i.isdigit():
+            nums.add(int(i))
+        else:
+            end_text.add(i)
+    result = getPrettyTextFromSet(nums)
+    if not end_text:
+        return result
+    end_text =list(end_text)
+    end_text.sort()
+    end_text = ",".join(end_text)
+    if result:
+        return result + "," + end_text
+    else:
+        return end_text
+
