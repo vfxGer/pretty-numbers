@@ -7,6 +7,3 @@
 .. |Code Climate| image:: https://codeclimate.com/github/vfxGer/pretty-numbers/badges/gpa.svg
    :target: https://codeclimate.com/github/vfxGer/pretty-numbers
  
- Pretty-Numbers
- --------------
- Render list of sequential numbers in a pretty human readable way
