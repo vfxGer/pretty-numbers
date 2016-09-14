@@ -31,3 +31,9 @@ class TestListUtils(unittest.TestCase):
         list_txt = [u'- TPB vol. 01', u'1', u'3', u'1', u'2', u'2', u'1',
                     u'- HC vol. 01', u'3', u'- HC vol. 01', u'3', u'2', u'- TPB vol. 01']
         self.assertEqual('1-3,- HC vol. 01,- TPB vol. 01', pretty_numbers.getPrettyNumbersText(list_txt))
+
+    def test_getPrettyNumbersText_with_ints(self):
+        list_txt = [u'- TPB vol. 01', u'1', u'3', u'1', u'2', u'2', u'1', 6,
+                    u'- HC vol. 01', u'3', u'- HC vol. 01', u'3', u'2', u'- TPB vol. 01']
+        self.assertEqual('1-3,6,- HC vol. 01,- TPB vol. 01', pretty_numbers.getPrettyNumbersText(list_txt))
+

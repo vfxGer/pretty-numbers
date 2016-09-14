@@ -41,7 +41,11 @@ def getPrettyNumbersText(list_of_strings):
     nums = set()
     end_text = set()
     for i in list_of_strings:
-        if i.isdigit():
+        try:
+            is_digit = i.isdigit()
+        except AttributeError:
+            is_digit = True
+        if is_digit:
             nums.add(int(i))
         else:
             end_text.add(i)
