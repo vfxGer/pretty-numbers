@@ -10,6 +10,7 @@ Pretty Numbers is a simple Python package that displays long series of numbers i
 
 I have used it for displaying frames of a render in a more human readable way or issues of comic books. It allows the user to quickly see what is included and what is missing.
 
+## Installation
 It is available on [PyPi](https://pypi.python.org/pypi/prettynumbers) meaning you can just:
 
     pip install prettynumbers 
