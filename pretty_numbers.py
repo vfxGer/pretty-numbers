@@ -37,6 +37,7 @@ def getPrettyTextFromNumbers(frames):
     framesSet = set(frames)
     return getPrettyTextFromSet(framesSet)
 
+
 def getPrettyNumbersText(list_of_strings):
     nums = set()
     end_text = set()
@@ -46,13 +47,16 @@ def getPrettyNumbersText(list_of_strings):
         except AttributeError:
             is_digit = True
         if is_digit:
-            nums.add(int(i))
+            try:
+                nums.add(int(i))
+            except TypeError:
+                end_text.add(str(i))
         else:
             end_text.add(i)
     result = getPrettyTextFromSet(nums)
     if not end_text:
         return result
-    end_text =list(end_text)
+    end_text = list(end_text)
     end_text.sort()
     end_text = ",".join(end_text)
     if result:
