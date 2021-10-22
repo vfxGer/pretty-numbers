@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 ########################################################
-__author__ = "Gerard Keating"
-__date__ = "12 Feb 2013"
+__author__ = "Gerard Keating vfxger.com"
 ########################################################
+
 
 def getPrettyTextFromSet(frames):
     """
