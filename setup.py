@@ -23,7 +23,6 @@ setup(
     download_url = 'https://pypi.python.org/packages/source/d/pretty_numbers-%s.tar.gz?raw=true' % (version),
     platforms='Cross-platform',
     classifiers=[
-      'Programming Language :: Python :: 2',
       'Programming Language :: Python :: 3'
     ],
 )
