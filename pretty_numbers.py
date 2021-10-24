@@ -8,9 +8,9 @@ def getPrettyTextFromSet(frames):
     """
     Given a set of integers returns a more human readable string
     """
-    if not frames: 
+    if not frames:
         return ""
-    if len(frames)==1:
+    if len(frames) == 1:
         framesSet = frames.copy()
         return str(framesSet.pop())
     framesList = list(frames)
@@ -29,6 +29,7 @@ def getPrettyTextFromSet(frames):
     if currentStrStart != currNum:
         pStr = pStr + "-" + str(lastNum)
     return pStr
+
 
 def getPrettyTextFromNumbers(frames):
     """
@@ -63,4 +64,3 @@ def getPrettyNumbersText(list_of_strings):
         return result + "," + end_text
     else:
         return end_text
-
