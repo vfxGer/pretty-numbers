@@ -37,7 +37,21 @@ class TestListUtils(unittest.TestCase):
                 "99,1001-1010,1111",
             ],
             [
-                set([1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1111]),
+                set(
+                    [
+                        1001,
+                        1002,
+                        1003,
+                        1004,
+                        1005,
+                        1006,
+                        1007,
+                        1008,
+                        1009,
+                        1010,
+                        1111,
+                    ]
+                ),
                 "1001-1010,1111",
             ],
             [
@@ -48,7 +62,9 @@ class TestListUtils(unittest.TestCase):
         ]
 
     def test_no_isdigit_attribute(self):
-        self.assertEqual(pretty_numbers.getPrettyNumbersText(["1", {1: 2}]), "1,{1: 2}")
+        self.assertEqual(
+            pretty_numbers.getPrettyNumbersText(["1", {1: 2}]), "1,{1: 2}"
+        )
 
     def test_prettyTextFromSet(self):
         for set_, text in self.compList:
