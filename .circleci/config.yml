@@ -7,7 +7,7 @@ jobs:
           pkg-manager: poetry
       - run:
           command: |
-            poetry run nosetests --with-coverage test_pretty_numbers.py
+            poetry run tox
           name: Test it
 orbs:
   python: circleci/python@1.0.0
