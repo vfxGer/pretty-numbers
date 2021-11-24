@@ -1,0 +1,18 @@
+jobs:
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            poetry run nosetests --with-coverage test_pretty_numbers.py
+          name: Test it
+orbs:
+  python: circleci/python@1.0.0
+version: 2.1
+workflows:
+  main:
+    jobs:
+      - test
