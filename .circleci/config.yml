@@ -4,7 +4,6 @@ jobs:
   test_py36:
     docker:
       - image: circleci/python:3.6
-    executor: python/default
     steps:
       - checkout
       - run:
