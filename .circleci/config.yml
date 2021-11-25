@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3.2.2
+  python: circleci/python@1.5.0
 
 jobs:
   test_py36:
@@ -52,6 +53,17 @@ jobs:
             poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
 
+  black:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            poetry run black --check *.py
+
+
 workflows:
   main:
     jobs:
@@ -59,3 +71,4 @@ workflows:
       - test_py37
       - test_py38_main
       - test_py39
+      - black
