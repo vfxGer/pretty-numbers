@@ -1,4 +1,4 @@
-version: 2
+
 
 jobs:
   test_py36:
@@ -13,7 +13,7 @@ jobs:
               poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
 
-
+version: 2.1
 workflows:
   main:
     jobs:
