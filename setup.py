@@ -20,8 +20,9 @@ setup(
     license="GNU GENERAL PUBLIC LICENSE",
     url="https://github.com/vfxGer/pretty-numbers",
     py_modules=["pretty_numbers"],
-    download_url="https://pypi.python.org/packages/source/d/pretty_numbers-%s.tar.gz?raw=true"
-    % (version),
+    download_url=f"https://pypi.python.org/packages/"
+    f"source/d/"
+    f"pretty_numbers-{version}.tar.gz?raw=true",
     platforms="Cross-platform",
     classifiers=["Programming Language :: Python :: 3"],
 )
