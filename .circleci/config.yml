@@ -1,28 +1,6 @@
 
 
 jobs:
-  test_py34:
-    docker:
-      - image: circleci/python:3.4
-    steps:
-      - checkout
-      - run:
-          command: |
-            pip install poetry
-            poetry install
-            poetry run nosetests --with-coverage test_pretty_numbers.py
-          name: Test it
-  test_py35:
-    docker:
-      - image: circleci/python:3.5
-    steps:
-      - checkout
-      - run:
-          command: |
-            pip install poetry
-            poetry install
-            poetry run nosetests --with-coverage test_pretty_numbers.py
-          name: Test it
   test_py36:
     docker:
       - image: circleci/python:3.6
@@ -71,8 +49,6 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - test_py34
-      - test_py35
       - test_py36
       - test_py37
       - test_py38
