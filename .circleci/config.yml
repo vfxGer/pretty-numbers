@@ -71,3 +71,4 @@ workflows:
       - test_py37
       - test_py38_main
       - test_py39
+      - black
