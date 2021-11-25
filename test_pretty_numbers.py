@@ -120,3 +120,6 @@ class TestListUtils(unittest.TestCase):
             "1-3,6,- HC vol. 01,- TPB vol. 01",
             pretty_numbers.getPrettyNumbersText(list_txt),
         )
+        import sys
+        print(sys.version)
+        assert "5" not in sys.version
