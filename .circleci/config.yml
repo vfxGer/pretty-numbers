@@ -1,18 +1,55 @@
+
+
 jobs:
-  test:
-    executor: python/default
+  test_py36:
+    docker:
+      - image: circleci/python:3.6
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: poetry
       - run:
           command: |
+            pip install poetry
+            poetry install
             poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
-orbs:
-  python: circleci/python@1.0.0
+  test_py37:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install poetry
+            poetry install
+            poetry run nosetests --with-coverage test_pretty_numbers.py
+          name: Test it
+  test_py38:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install poetry
+            poetry install
+            poetry run nosetests --with-coverage test_pretty_numbers.py
+          name: Test it
+  test_py39:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install poetry
+            poetry install
+            poetry run nosetests --with-coverage test_pretty_numbers.py
+          name: Test it
 version: 2.1
 workflows:
   main:
     jobs:
-      - test
+      - test_py36
+      - test_py37
+      - test_py38
+      - test_py39
