@@ -3,11 +3,9 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: poetry
       - run:
           command: |
-            poetry run tox
+            pip install tox && tox
           name: Test it
 orbs:
   python: circleci/python@1.0.0
