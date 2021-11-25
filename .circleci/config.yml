@@ -56,17 +56,17 @@ jobs:
             poetry install
             poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
-    test_py39:
-      docker:
-        - image: circleci/python:3.9
-      steps:
-        - checkout
-        - run:
-            command: |
-              pip install poetry
-              poetry install
-              poetry run nosetests --with-coverage test_pretty_numbers.py
-            name: Test it
+  test_py39:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install poetry
+            poetry install
+            poetry run nosetests --with-coverage test_pretty_numbers.py
+          name: Test it
 version: 2.1
 workflows:
   main:
