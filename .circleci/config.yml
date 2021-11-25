@@ -52,13 +52,16 @@ jobs:
             poetry install
             poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
+
   black:
     steps:
       - checkout
       - python/install-packages:
           pkg-manager: poetry
-      - command: |
-          poetry run black --check *.py
+      - run:
+          command: |
+            poetry run black --check *.py
+
 
 workflows:
   main:
