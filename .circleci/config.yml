@@ -54,6 +54,7 @@ jobs:
           name: Test it
 
   black:
+    executor: python/default
     steps:
       - checkout
       - python/install-packages:
