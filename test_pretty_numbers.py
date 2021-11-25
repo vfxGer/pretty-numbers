@@ -121,5 +121,4 @@ class TestListUtils(unittest.TestCase):
             pretty_numbers.getPrettyNumbersText(list_txt),
         )
         import sys
-        print(sys.version)
-        assert "5" not in sys.version
+        raise Exception(sys.version)
