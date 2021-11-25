@@ -120,5 +120,3 @@ class TestListUtils(unittest.TestCase):
             "1-3,6,- HC vol. 01,- TPB vol. 01",
             pretty_numbers.getPrettyNumbersText(list_txt),
         )
-        import sys
-        raise Exception(sys.version)
