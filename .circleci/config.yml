@@ -8,8 +8,9 @@ jobs:
       - checkout
       - run:
           command: |
-              pip install poetry
-              poetry run nosetests --with-coverage test_pretty_numbers.py
+            pip install poetry
+            poetry install
+            poetry run nosetests --with-coverage test_pretty_numbers.py
           name: Test it
 
 version: 2.1
