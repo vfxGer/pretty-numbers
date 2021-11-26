@@ -2,8 +2,7 @@
 ########################################################
 __author__ = "Gerard Keating vfxger.com"
 ########################################################
-from collections.abc import Sequence
-from typing import Set
+from typing import Set, Sequence
 
 
 def getPrettyTextFromSet(frames: Set[int]) -> str:
