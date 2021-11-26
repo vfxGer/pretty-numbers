@@ -72,7 +72,17 @@ jobs:
       - run:
           command: |
             poetry run mypy pretty_numbers.py
-
+  test_publish:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            python setup.py sdist bdist_wheel
+            poetry run twine check dist/*
+            poetry run twine upload -u __token__ -p $TEST_TWINE_PASS --repository-url https://test.pypi.org/legacy/ dist/*
 
 workflows:
   main:
