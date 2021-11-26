@@ -93,4 +93,3 @@ workflows:
       - test_py39
       - black
       - mypy
-      - test_publish
