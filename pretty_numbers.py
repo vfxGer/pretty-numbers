@@ -2,9 +2,10 @@
 ########################################################
 __author__ = "Gerard Keating vfxger.com"
 ########################################################
+from typing import Set, Sequence
 
 
-def getPrettyTextFromSet(frames):
+def getPrettyTextFromSet(frames: Set[int]) -> str:
     """
     Given a set of integers returns a more human readable string
     """
@@ -31,7 +32,7 @@ def getPrettyTextFromSet(frames):
     return pStr
 
 
-def getPrettyTextFromNumbers(frames):
+def getPrettyTextFromNumbers(frames: Sequence[int]) -> str:
     """
     Given iterable of integers returns a more human readable string
     """
@@ -39,9 +40,9 @@ def getPrettyTextFromNumbers(frames):
     return getPrettyTextFromSet(framesSet)
 
 
-def getPrettyNumbersText(list_of_strings):
+def getPrettyNumbersText(list_of_strings: Sequence[str]) -> str:
     nums = set()
-    end_text = set()
+    text_result = set()
     for i in list_of_strings:
         try:
             is_digit = i.isdigit()
@@ -51,16 +52,16 @@ def getPrettyNumbersText(list_of_strings):
             try:
                 nums.add(int(i))
             except TypeError:
-                end_text.add(str(i))
+                text_result.add(str(i))
         else:
-            end_text.add(i)
+            text_result.add(i)
     result = getPrettyTextFromSet(nums)
-    if not end_text:
+    if not text_result:
         return result
-    end_text = list(end_text)
-    end_text.sort()
-    end_text = ",".join(end_text)
+    texts = list(text_result)
+    texts.sort()
+    final_text = ",".join(texts)
     if result:
-        return result + "," + end_text
+        return result + "," + final_text
     else:
-        return end_text
+        return final_text

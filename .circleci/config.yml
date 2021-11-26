@@ -63,6 +63,16 @@ jobs:
           command: |
             poetry run black --check *.py
 
+  mypy:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            poetry run mypy pretty_numbers.py
+
 
 workflows:
   main:
@@ -72,3 +82,4 @@ workflows:
       - test_py38_main
       - test_py39
       - black
+      - mypy
