@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "pretty-numbers"
-version = "0.1.0"
-description = ""
+name = "prettynumbers"
+version = "0.1.1"
 authors = ["gerardk <gerardk@gmail.com>"]
+description="Display a range of numbers in a human readable way"
+license="GNU GENERAL PUBLIC LICENSE"
 
 [tool.poetry.dependencies]
 python = "^3.8.0"
