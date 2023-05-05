@@ -60,6 +60,17 @@ jobs:
             python setup.py sdist bdist_wheel
             poetry run twine check dist/*
             poetry run twine upload -u __token__ -p $TEST_TWINE_PASS --repository-url https://test.pypi.org/legacy/ dist/*
+  real_publish:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            python setup.py sdist bdist_wheel
+            poetry run twine check dist/*
+            poetry run twine upload -u __token__ -p $TWINE_PASSWORD dist/*
 
 workflows:
   main:
@@ -68,3 +79,20 @@ workflows:
       - test_py39
       - black
       - mypy
+      - test_publish:
+          requires:
+            - test_py38_main
+            - test_py39
+            - black
+            - mypy
+          filters:
+            branches:
+              only:
+                - main
+      - real_publish_approval:
+          requires:
+            - test_publish
+          type: approval
+      - real_publish:
+          requires:
+            - real_publish_approval
