@@ -5,9 +5,9 @@ __date__ = "12 Feb 2013"
 ########################################################
 
 import unittest
+from typing import Any, List
 
 import pretty_numbers
-from typing import List, Any
 
 
 class TestListUtils(unittest.TestCase):
