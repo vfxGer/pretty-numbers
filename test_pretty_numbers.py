@@ -7,10 +7,13 @@ __date__ = "12 Feb 2013"
 import unittest
 
 import pretty_numbers
+from typing import List, Any
 
 
 class TestListUtils(unittest.TestCase):
-    def setUp(self):
+    compList: List[Any]
+
+    def setUp(self) -> None:
         self.compList = [
             [set([99]), "99"],
             [
@@ -61,16 +64,16 @@ class TestListUtils(unittest.TestCase):
             [set([]), ""],
         ]
 
-    def test_no_isdigit_attribute(self):
+    def test_no_isdigit_attribute(self) -> None:
         self.assertEqual(
             pretty_numbers.getPrettyNumbersText(["1", {1: 2}]), "1,{1: 2}"
         )
 
-    def test_prettyTextFromSet(self):
+    def test_prettyTextFromSet(self) -> None:
         for set_, text in self.compList:
             self.assertEqual(pretty_numbers.getPrettyTextFromSet(set_), text)
 
-    def test_getPrettTextFromNumbers(self):
+    def test_getPrettTextFromNumbers(self) -> None:
         self.assertEqual(
             pretty_numbers.getPrettyTextFromNumbers(
                 [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010]
@@ -78,7 +81,7 @@ class TestListUtils(unittest.TestCase):
             "1001-1010",
         )
 
-    def test_getPrettyNumbersText(self):
+    def test_getPrettyNumbersText(self) -> None:
         list_txt = [
             "- TPB vol. 01",
             "1",
@@ -99,7 +102,7 @@ class TestListUtils(unittest.TestCase):
             pretty_numbers.getPrettyNumbersText(list_txt),
         )
 
-    def test_getPrettyNumbersText_with_ints(self):
+    def test_getPrettyNumbersText_with_ints(self) -> None:
         list_txt = [
             "- TPB vol. 01",
             "1",

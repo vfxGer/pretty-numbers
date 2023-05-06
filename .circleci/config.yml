@@ -56,7 +56,8 @@ jobs:
           pkg-manager: poetry
       - run:
           command: |
-            poetry run mypy pretty_numbers.py
+            poetry run mypy --strict pretty_numbers.py
+            poetry run mypy --strict test_pretty_numbers.py
   test_publish:
     executor: python/default
     steps:
