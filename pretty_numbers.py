@@ -63,5 +63,4 @@ def getPrettyNumbersText(list_of_strings: Sequence[str]) -> str:
     final_text = ",".join(texts)
     if result:
         return result + "," + final_text
-    else:
-        return final_text
+    return final_text

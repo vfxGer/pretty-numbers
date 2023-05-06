@@ -29,7 +29,15 @@ jobs:
       - run:
           command: |
             poetry run nosetests test_pretty_numbers.py
-
+  pylint:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            poetry run pylint *.py
   black:
     executor: python/default
     steps:
@@ -79,12 +87,14 @@ workflows:
       - test_py39
       - black
       - mypy
+      - pylint
       - test_publish:
           requires:
             - test_py38_main
             - test_py39
             - black
             - mypy
+            - pylint
           filters:
             branches:
               only:

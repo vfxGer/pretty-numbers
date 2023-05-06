@@ -1,13 +1,14 @@
 # based on https://github.com/pypa/sampleproject/blob/master/setup.py
-from setuptools import setup
 from os import path
+
+from setuptools import setup
 
 here = path.abspath(path.dirname(__file__))
 
-version = "0.1.3"
+version = "0.1.4"
 
 # Get the long description from the README file
-with open(path.join(here, "README.rst")) as f:
+with open(path.join(here, "README.rst"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
