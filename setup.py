@@ -27,5 +27,6 @@ setup(
     f"pretty_numbers-{version}.tar.gz?raw=true",
     platforms="Cross-platform",
     classifiers=["Programming Language :: Python :: 3"],
-    package_data={"prettynumbers": ["py.typed"]},
+    package_data={"prettynumbers": ["py.typed", "pretty_number.pyi"]},
+    include_package_data=True,
 )

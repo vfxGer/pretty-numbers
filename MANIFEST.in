@@ -2,3 +2,4 @@
 include LICENSE.txt
 include README.md
 include py.typed
+include pretty_number.pyi
