@@ -6,6 +6,7 @@ here = path.abspath(path.dirname(__file__))
 
 version = "0.2.2"
 
+
 # Get the long description from the README file
 with open(path.join(here, "README.rst"), encoding="utf-8") as f:
     long_description = f.read()
