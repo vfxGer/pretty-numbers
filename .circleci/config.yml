@@ -66,9 +66,10 @@ jobs:
       - run:
           name: Publish to test pypi
           command: |
-            python setup.py sdist bdist_wheel
-            poetry run twine check dist/*
-            poetry run twine upload -u __token__ -p $TEST_TWINE_PASS --repository-url https://test.pypi.org/legacy/ dist/*
+            poetry build
+            poetry config repositories.test-pypi https://test.pypi.org/legacy/
+            poetry config pypi-token.test-pypi $TEST_PYPI_TOKEN
+            poetry publish -r test-pypi
   real_publish:
     executor: python/default
     steps:
@@ -76,10 +77,11 @@ jobs:
       - python/install-packages:
           pkg-manager: poetry
       - run:
+          name: Publish to PyPi
           command: |
-            python setup.py sdist bdist_wheel
-            poetry run twine check dist/*
-            poetry run twine upload -u __token__ -p $TWINE_PASSWORD dist/*
+            poetry build
+            poetry config pypi-token.pypi $PYPI_TOKEN
+            poetry publish
 
 workflows:
   main:
