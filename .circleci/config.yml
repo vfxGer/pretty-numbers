@@ -65,6 +65,7 @@ jobs:
       - python/install-packages:
           pkg-manager: poetry
       - run:
+          name: Publish to test pypi
           command: |
             python setup.py sdist bdist_wheel
             poetry run twine check dist/*
