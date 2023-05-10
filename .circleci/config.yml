@@ -70,6 +70,7 @@ jobs:
             poetry config repositories.test-pypi https://test.pypi.org/legacy/
             poetry config pypi-token.test-pypi $TEST_PYPI_TOKEN
             poetry publish -r test-pypi
+            git tag "`poetry version -s`"
   real_publish:
     executor: python/default
     steps:
@@ -98,10 +99,10 @@ workflows:
             - black
             - mypy
             - pylint
-          filters:
-            branches:
-              only:
-                - main
+          # filters:
+          #   branches:
+          #     only:
+          #       - main
       - real_publish_approval:
           requires:
             - test_publish
