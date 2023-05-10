@@ -82,6 +82,10 @@ jobs:
             poetry build
             poetry config pypi-token.pypi $PYPI_TOKEN
             poetry publish
+            git config user.email "circlecigh@mg.issueinfinity.com"
+            git config user.name "Circle CI"
+            git tag -a `poetry version -s` -m "Created on circleCI"
+            git push origin `poetry version -s`
 
 workflows:
   main:
