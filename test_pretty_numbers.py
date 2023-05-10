@@ -7,7 +7,7 @@ __date__ = "12 Feb 2013"
 import unittest
 from typing import Any, List
 
-from .pretty_numbers import (
+from pretty_numbers import (
     getPrettyNumbersText,
     getPrettyTextFromNumbers,
     getPrettyTextFromSet,
