@@ -71,6 +71,8 @@ jobs:
             poetry config pypi-token.test-pypi $TEST_PYPI_TOKEN
             poetry publish -r test-pypi
             git tag -a `poetry version -s` -m "Created on circleCI"
+            git config user.email "circleci@mg.issueinfinity.com"
+            git config user.name "Circle CI"
             git push origin `poetry version -s`
   real_publish:
     executor: python/default
