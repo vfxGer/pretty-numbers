@@ -13,7 +13,7 @@ jobs:
           pkg-manager: poetry
       - run:
           command: |
-            poetry run nosetests --with-coverage pretty_numbers --cover-xml
+            poetry run nosetests --with-coverage test_pretty_numbers.py --cover-xml
           name: Test it
       - store_artifacts:
           path: coverage.xml
@@ -28,7 +28,7 @@ jobs:
           pkg-manager: poetry
       - run:
           command: |
-            poetry run nosetests pretty_numbers
+            poetry run nosetests test_pretty_numbers.py
   pylint:
     executor: python/default
     steps:
@@ -82,6 +82,10 @@ jobs:
             poetry build
             poetry config pypi-token.pypi $PYPI_TOKEN
             poetry publish
+            git config user.email "circlecigh@mg.issueinfinity.com"
+            git config user.name "Circle CI"
+            git tag -a `poetry version -s` -m "Created on circleCI"
+            git push origin `poetry version -s`
 
 workflows:
   main:
