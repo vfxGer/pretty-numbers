@@ -11,6 +11,7 @@ from .pretty_numbers import (
     getPrettyNumbersText,
     getPrettyTextFromNumbers,
     getPrettyTextFromSet,
+    getNumbersFromText
 )
 
 
@@ -125,3 +126,8 @@ class TestListUtils(unittest.TestCase):
             "1-3,6,- HC vol. 01,- TPB vol. 01",
             getPrettyNumbersText(list_txt),
         )
+
+    def test_getNumbersFromText(self) -> None:
+        input_output = [("1,2", {1, 2})]
+        for input, output in input_output:
+            self.assertEqual(getNumbersFromText(input), output)

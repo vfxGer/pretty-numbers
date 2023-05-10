@@ -2,7 +2,7 @@
 ########################################################
 __author__ = "Gerard Keating vfxger.com"
 ########################################################
-from typing import Any, Sequence, Set
+from typing import Any, Sequence, Set, Optional
 
 
 def getPrettyTextFromSet(frames: Set[int]) -> str:
@@ -64,3 +64,11 @@ def getPrettyNumbersText(list_of_strings: Sequence[Any]) -> str:
     if result:
         return result + "," + final_text
     return final_text
+
+
+def getNumbersFromText(text: str) -> Optional[Set[int]]:
+    """
+    > getNumbersFromText("1,2,5-9")
+    > {1,2,5,6,7,8,9}
+    """
+    pass
