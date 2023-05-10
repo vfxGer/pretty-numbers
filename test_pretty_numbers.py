@@ -128,6 +128,11 @@ class TestListUtils(unittest.TestCase):
         )
 
     def test_getNumbersFromText(self) -> None:
-        input_output = [("1,2", {1, 2})]
+        input_output = [("1,2", {1, 2}),
+                        ("1,2,5-9", {1, 2, 5, 6, 7, 8, 9}),
+                        ("- HC vol. 01,1-3,- TPB vol. 01, 4,7,6-9",
+                         {1, 2, 3, 4, 6, 7, 8, 9}),
+                        ("0.5-3, -7", set())
+                        ]
         for input, output in input_output:
             self.assertEqual(getNumbersFromText(input), output)
