@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "prettynumbers"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["gerardk <gerardk@gmail.com>"]
 description="Display a range of numbers in a human readable way"
 license="GNU GENERAL PUBLIC LICENSE"
 packages = [{include = "pretty_numbers"}]
 readme = "README.md"
+repository = "https://github.com/vfxGer/pretty-numbers"
 
 [tool.poetry.dependencies]
 python = "^3.8.0"
