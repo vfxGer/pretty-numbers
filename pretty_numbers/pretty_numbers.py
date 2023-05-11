@@ -3,6 +3,7 @@
 __author__ = "Gerard Keating vfxger.com"
 ########################################################
 from typing import Any, Sequence, Set
+import re
 
 
 def getPrettyTextFromSet(frames: Set[int]) -> str:
@@ -64,3 +65,25 @@ def getPrettyNumbersText(list_of_strings: Sequence[Any]) -> str:
     if result:
         return result + "," + final_text
     return final_text
+
+
+def getNumbersFromText(text: str) -> Set[int]:
+    """
+    > getNumbersFromText("1,2,5-9")
+    > {1,2,5,6,7,8,9}
+    """
+    range_re = re.compile(r"\s*([0-9]+)\s*-\s*([0-9]+)\s*")
+    result = set()
+    for unit in text.split(","):
+        unit = unit.strip()
+        if unit.isdigit():
+            result.add(int(unit))
+        else:
+            reg_res = range_re.match(unit)
+            if reg_res:
+                r1 = int(reg_res.groups()[0])
+                r2 = int(reg_res.groups()[1])
+                start = min((r1, r2))
+                end = max((r1, r2))
+                result = result.union(set(range(start, end + 1)))
+    return result
