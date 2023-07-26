@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "prettynumbers"
-version = "0.3.5"
+version = "0.3.6"
 authors = ["gerardk <gerardk@gmail.com>"]
 description="Display a range of numbers in a human readable way"
 license="GNU GENERAL PUBLIC LICENSE"
