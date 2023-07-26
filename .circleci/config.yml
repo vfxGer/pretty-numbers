@@ -39,7 +39,8 @@ jobs:
           command: |
             poetry run pylint pretty_numbers
   black:
-    executor: python/default
+    docker:
+      - image: cimg/python:3.10
     steps:
       - checkout
       - python/install-packages:
