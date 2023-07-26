@@ -46,16 +46,9 @@ def getPrettyNumbersText(list_of_strings: Sequence[Any]) -> str:
     text_result = set()
     for i in list_of_strings:
         try:
-            is_digit = i.isdigit()
-        except AttributeError:
-            is_digit = True
-        if is_digit:
-            try:
-                nums.add(int(i))
-            except TypeError:
-                text_result.add(str(i))
-        else:
-            text_result.add(i)
+            nums.add(int(i))
+        except (TypeError, ValueError):
+            text_result.add(str(i))
     result = getPrettyTextFromSet(nums)
     if not text_result:
         return result
