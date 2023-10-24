@@ -21,8 +21,8 @@ It is available on [PyPi](https://pypi.python.org/pypi/prettynumbers) meaning yo
 import pretty_numbers
 pretty_numbers.getPrettyTextFromNumbers([1001, 99, 1004, 1005, 1003, 1008,
                                          1002, 1007, 1010, 1006, 1111, 1009])
+# returns "99,1001-1010,1111"
+
+pretty_numbers.getNumbersFromText("7,04,67-70")
+# returns {4, 7, 67, 68, 69, 70}
 ```
-
-Returns:
-
-    "99,1001-1010,1111"
