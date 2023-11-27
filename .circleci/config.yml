@@ -78,7 +78,8 @@ jobs:
   test_publish:
     executor: python/default
     steps:
-      - checkout
+      - run:
+          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
       - python/install-packages:
           pkg-manager: poetry
       - run:
@@ -91,7 +92,8 @@ jobs:
   real_publish:
     executor: python/default
     steps:
-      - checkout
+      - run:
+          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
       - python/install-packages:
           pkg-manager: poetry
       - run:
