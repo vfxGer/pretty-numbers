@@ -78,11 +78,7 @@ jobs:
   test_publish:
     executor: python/default
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "31:2f:bb:70:3b:75:d1:5e:71:31:e0:0d:e3:89:fa:08"
-      - run:
-          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
+      - run: git clone -b main << pipeline.trigger_parameters.github_app.repo_url >>
       - python/install-packages:
           pkg-manager: poetry
       - run:
@@ -95,11 +91,7 @@ jobs:
   real_publish:
     executor: python/default
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "31:2f:bb:70:3b:75:d1:5e:71:31:e0:0d:e3:89:fa:08"
-      - run:
-          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
+      - run: git clone -b main << pipeline.trigger_parameters.github_app.repo_url >>
       - python/install-packages:
           pkg-manager: poetry
       - run:
