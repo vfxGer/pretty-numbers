@@ -58,6 +58,20 @@ jobs:
       - run:
           command: |
             poetry run mypy --strict pretty_numbers
+  auto_inc:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          command: |
+            poetry version patch &&
+            git config user.email "circlecigh@mg.issueinfinity.com" &&
+            git config user.name "Circle CI" &&
+            git add pyproject.toml &&
+            git commit -m "Auto incrementing version" &&
+            git push -u origin HEAD
   test_publish:
     executor: python/default
     steps:
@@ -96,6 +110,7 @@ workflows:
       - black
       - mypy
       - pylint
+      - auto_inc
       - test_publish:
           requires:
             - test_py38_main
