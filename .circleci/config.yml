@@ -61,6 +61,9 @@ jobs:
   auto_inc:
     executor: python/default
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "31:2f:bb:70:3b:75:d1:5e:71:31:e0:0d:e3:89:fa:08"
       - checkout
       - python/install-packages:
           pkg-manager: poetry
