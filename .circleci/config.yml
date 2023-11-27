@@ -113,8 +113,7 @@ workflows:
       - black
       - mypy
       - pylint
-      - auto_inc
-      - test_publish:
+      - auto_inc:
           requires:
             - test_py38_main
             - test_py39
@@ -125,6 +124,9 @@ workflows:
             branches:
               only:
                 - main
+      - test_publish:
+          requires:
+            - auto_inc
       - real_publish_approval:
           requires:
             - test_publish
