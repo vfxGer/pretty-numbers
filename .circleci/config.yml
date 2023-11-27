@@ -79,7 +79,7 @@ jobs:
     executor: python/default
     steps:
       - run:
-          command: git clone -b main .
+          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
       - python/install-packages:
           pkg-manager: poetry
       - run:
@@ -93,7 +93,7 @@ jobs:
     executor: python/default
     steps:
       - run:
-          command: git clone -b main .
+          command: git clone -b main "$CIRCLE_REPOSITORY_URL"
       - python/install-packages:
           pkg-manager: poetry
       - run:
