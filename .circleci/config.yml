@@ -78,7 +78,8 @@ jobs:
   test_publish:
     executor: python/default
     steps:
-      - run: git clone -b main << pipeline.trigger_parameters.github_app.repo_url >>
+      - checkout
+      - run: git pull origin main
       - python/install-packages:
           pkg-manager: poetry
       - run:
@@ -91,7 +92,8 @@ jobs:
   real_publish:
     executor: python/default
     steps:
-      - run: git clone -b main << pipeline.trigger_parameters.github_app.repo_url >>
+      - checkout
+      - run: git pull origin main
       - python/install-packages:
           pkg-manager: poetry
       - run:
